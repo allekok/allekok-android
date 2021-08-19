@@ -7,31 +7,28 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 public class MainActivity extends AppCompatActivity {
-    private WebView webView;
+	private WebView webView;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
 
-        webView = (WebView)findViewById(R.id.browser);
-        WebSettings webSettings = webView.getSettings();
-        webSettings.setJavaScriptEnabled(true);
-        webSettings.setDomStorageEnabled(true);
-        webSettings.setAllowUniversalAccessFromFileURLs(true);
+		webView = (WebView)findViewById(R.id.browser);
+		WebSettings webSettings = webView.getSettings();
+		webSettings.setJavaScriptEnabled(true);
+		webSettings.setDomStorageEnabled(true);
+		webSettings.setAllowUniversalAccessFromFileURLs(true);
 
-        webView.loadUrl("file:///android_asset/app/index.html");
+		webView.loadUrl("file:///android_asset/app/index.html");
+	}
 
-        // webView.setWebViewClient(new WebViewClient());
-
-    }
-
-    @Override
-    public void onBackPressed() {
-        if(webView.canGoBack()) {
-            webView.goBack();
-        } else {
-            super.onBackPressed();
-        }
-    }
+	@Override
+	public void onBackPressed() {
+		if(webView.canGoBack()) {
+			webView.goBack();
+		} else {
+			super.onBackPressed();
+		}
+	}
 }
